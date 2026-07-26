@@ -1,6 +1,7 @@
 package latte.roseclient;
 
 import latte.roseclient.event.bus.EventBus;
+import latte.roseclient.event.events.TickEvent;
 import latte.roseclient.manager.CommandManager;
 import latte.roseclient.manager.ConfigManager;
 import latte.roseclient.manager.HudManager;
@@ -8,11 +9,14 @@ import latte.roseclient.manager.KeybindManager;
 import latte.roseclient.manager.ModuleManager;
 import latte.roseclient.manager.NotificationManager;
 import latte.roseclient.manager.ThemeManager;
+import latte.roseclient.test.EventTest;
 
 public final class RoseClient {
 
     public static final String NAME = "Rose Client";
     public static final String VERSION = "0.1.0";
+
+    public static final EventBus EVENT_BUS = new EventBus();
 
     private static RoseClient instance;
 
@@ -52,7 +56,10 @@ public final class RoseClient {
         return instance;
     }
 
-    public void initialize() {
+    public static void initialize() {
+
+        EVENT_BUS.register(new EventTest());
+
         System.out.println(NAME + " " + VERSION + " initialized.");
     }
 
