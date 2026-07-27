@@ -1,36 +1,18 @@
-package latte.roseclient.event.events;
+package latte.roseclient.keybind;
 
-import latte.roseclient.RoseClient;
-import latte.roseclient.event.Event;
 import latte.roseclient.event.Subscribe;
-import net.minecraft.client.MinecraftClient;
+import latte.roseclient.event.events.KeyEvent;
 import latte.roseclient.gui.clickgui.screen.ClickGuiScreen;
-
+import net.minecraft.client.MinecraftClient;
 import org.lwjgl.glfw.GLFW;
 
 
-public class KeyEvent extends Event {
-
-
-    private final int key;
-
-
-    public KeyEvent(int key) {
-
-        this.key = key;
-
-    }
-
-
-    public int getKey() {
-
-        return key;
-
-    }
+public class ClientKeyHandler {
 
 
     @Subscribe
     public void onKey(KeyEvent event) {
+
 
         if (event.getKey() == GLFW.GLFW_KEY_RIGHT_SHIFT) {
 
@@ -38,7 +20,6 @@ public class KeyEvent extends Event {
                     .setScreen(new ClickGuiScreen());
 
         }
-
     }
 
 }

@@ -1,13 +1,16 @@
 {
-	"required": true,
-	"package": "latte.roseclient.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"client": [],
-	"mixins": [],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
-	}
+  "required": true,
+  "package": "latte.roseclient.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MinecraftClientMixin",
+    "GameRendererMixin",
+    "InGameHudMixin",
+    "KeyboardMixin",
+    "MouseMixin"
+  ],
+  "mixins": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
